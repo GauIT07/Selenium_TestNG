@@ -45,15 +45,6 @@ public class DemoTestNG {
         // Truy cập trang web theo tên url truyền vào
        driver.get("https://auto.fresher.dev/lessons/lession7/index.html");
 
-
-        // đợi load 5s
-      // sleep (5000);
-//       List<WebElement> buttons = driver.findElements(By.className("btn-success"));
-//       buttons.get(6).click();
-//       for (int i; i < buttons.size(); i++) {
-//           buttons.get(i).click();
-//       }
-
         // lấy id tên nút Button1
        WebElement btn1 = driver.findElement(By.id("btnExample1"));
         // thực hiện click trên btn
@@ -109,7 +100,6 @@ public class DemoTestNG {
         WebElement element = driver.findElement(By.id("defaultCheck1"));
         element.click();
         boolean isChecked = element.isSelected();
-       // System.out.println(isChecked);
         element.click();
         element.click();
         element.click();
@@ -133,15 +123,4 @@ public class DemoTestNG {
 
     }
 
-    @Test(priority = 2)
-    public void TestRun2() {
-        driver.get("https://mylocal.vn");
-        driver.navigate().refresh();
-        driver.navigate().to("https://thanhnien.vn");
-     //   sleep(5000);
 
-        System.out.println("Run test 2.");
-    }
-
-
-}
