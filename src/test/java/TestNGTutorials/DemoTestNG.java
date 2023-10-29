@@ -10,14 +10,6 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.beans.PropertyChangeListener;
-import java.util.List;
-
-import static java.lang.Thread.currentThread;
-import static java.lang.Thread.sleep;
-
 public class DemoTestNG {
 
     WebDriver driver;
@@ -37,22 +29,22 @@ public class DemoTestNG {
         //driver.quit();
     }
 
-    @Test (priority = 1)
-    public void TestRun_button () {
+    @Test(priority = 1)
+    public void TestRun_button() {
 
 //       driver.get("https://auto.fresher.dev/");
 
         // Truy cập trang web theo tên url truyền vào
-       driver.get("https://auto.fresher.dev/lessons/lession7/index.html");
+        driver.get("https://auto.fresher.dev/lessons/lession7/index.html");
 
         // lấy id tên nút Button1
-       WebElement btn1 = driver.findElement(By.id("btnExample1"));
+        WebElement btn1 = driver.findElement(By.id("btnExample1"));
         // thực hiện click trên btn
-       btn1.click();
+        btn1.click();
         // lấy id tên textbox
-       WebElement texteBtn = driver.findElement(By.id("lbStatusButton"));
+        WebElement texteBtn = driver.findElement(By.id("lbStatusButton"));
         // lấy dữ liệu text trên textbox -> string
-       String valueBtn = texteBtn.getText();
+        String valueBtn = texteBtn.getText();
         // so sánh kết quả actual, expected
         Assert.assertEquals(valueBtn, "Click on Button 1");
 
@@ -62,9 +54,9 @@ public class DemoTestNG {
 
     @Test
     public void TestRun_textbox() {
-       // setup driver của chrome
+        // setup driver của chrome
         WebDriverManager.chromedriver().setup();
-       // truy cập trang web theo string truyền vào
+        // truy cập trang web theo string truyền vào
         driver.get("https://auto.fresher.dev/lessons/lession7/index.html");
 
         // tìm element theo id
@@ -74,7 +66,7 @@ public class DemoTestNG {
         String textBoxInputValue = textBoxInput.getAttribute("value");
 
         // so sánh dữ liệu biến và string có sẵn
-        Assert.assertEquals(textBoxInputValue,"Default value of input");
+        Assert.assertEquals(textBoxInputValue, "Default value of input");
 
         // Click vào ô textbox
         textBoxInput.click();
@@ -94,7 +86,7 @@ public class DemoTestNG {
     }
 
     @Test
-    public void TestRun4_textbox () {
+    public void TestRun4_textbox() {
         driver.get("https://auto.fresher.dev/lessons/lession7/index.html");
 
         WebElement element = driver.findElement(By.id("defaultCheck1"));
@@ -109,18 +101,17 @@ public class DemoTestNG {
 
         setCheckboxState(element, true);
 
-        if (isChecked == true){
+        if (isChecked == true) {
             System.out.println("Trạng thái của btn là được tick. " + isChecked);
         } else {
-            System.out.println("Trạng thái của btn là không được tick. " + isChecked) ;
+            System.out.println("Trạng thái của btn là không được tick. " + isChecked);
         }
     }
-    public void setCheckboxState (WebElement element, boolean isChecked) {
+
+    public void setCheckboxState(WebElement element, boolean isChecked) {
         boolean isActualChecked = element.isSelected();
         if (isChecked != isActualChecked) {
             element.click();
         }
-
     }
-
-
+}
